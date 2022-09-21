@@ -32,6 +32,8 @@ The table.timestamps(true, true) method will add created_at and updated_at colum
 
 ---The timestamps() method has two optional arguments: Passing true as the first argument sets the columns to be a timestamp type. Passing true as the second argument sets those columns to be non-nullable and to use the current timestamp by default.
 
-After creating the tables you want.
+After creating the tables you want, run migrations.
 run
 npx knex migrate:latest
+
+refer to module 35.5 Seeding data with knex

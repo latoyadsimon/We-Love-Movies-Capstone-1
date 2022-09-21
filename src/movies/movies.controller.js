@@ -18,6 +18,7 @@ async function list(req, res, next) {
   res.status(200).json({ data: await moviesService.list() });
 }
 
+//middleware
 async function movieExists(req, res, next) {
   const movie = await moviesService.read(req.params.movieId);
   if (movie) {
@@ -33,12 +34,6 @@ function read(req, res) {
 }
 
 // //list all the theaters associated with that movie
-// function listAllTheaters(req, res) {
-//   const { movieId } = req.params;
-//   const foundMovie = movies.find((movie) => movie.id === movieId);
-//   res.json({ data: foundMovie });
-// }
-
 async function listAllTheaters(req, res) {
   const movieId = res.locals.movie.movie_id;
   const result = await moviesService.listAllTheaters(movieId);

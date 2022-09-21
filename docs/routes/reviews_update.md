@@ -43,6 +43,8 @@ The response should include the entire review record with the newly patched cont
 }
 ```
 
+<!-- notes to self: tests is not expecting critic.created_at, and critic.updated_at -->
+
 ### UPDATE /reviews/:reviewId (incorrect ID)
 
 If the given ID does not match an existing review, a response like the following should be returned:

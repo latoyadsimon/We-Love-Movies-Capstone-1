@@ -4,7 +4,7 @@ const knex = require("../db/connection");
 const reduceProperties = require("../utils/reduce-properties");
 // function list() {
 //   return knex("theaters").select("*");
-// }
+// }// a normal list function
 
 // const addMovies = mapProperties({
 //   movie_id: "movies.movie_id",
@@ -17,7 +17,7 @@ const reduceProperties = require("../utils/reduce-properties");
 //   theater_id: "theater_id",
 // });
 
-//reduce properties returns a function that needs data passed into it, (the variable that you made is now a function)
+//reduce properties returns a function that needs data passed into it, you have to make that data object that has key value pairs. All the values should be arrays. (the variable (addMovies) that you made is now a function)
 const addMovies = reduceProperties("theater_id", {
   movie_id: ["movies", null, "movie_id"],
   title: ["movies", null, "title"],
@@ -30,8 +30,6 @@ const addMovies = reduceProperties("theater_id", {
   created_at: ["movies", null, "created_at"],
   updated_at: ["movies", null, "updated_at"],
 });
-
-let array = [];
 
 // function list() {
 //   return knex("theaters  as t")
@@ -47,8 +45,8 @@ function list() {
       .join("movies_theaters as mt", "mt.theater_id", "t.theater_id")
       .join("movies as m", "m.movie_id", "mt.movie_id")
       .select("t.*", "m.*", "mt.is_showing")
-      //.then((data) => data.map(addMovies));
-      .then((data) => addMovies(data))
+      //.then((data) => data.map(addMovies));// addMovies is a function so it can't work with map.
+      .then((data) => addMovies(data)) // data needs to be passed into the newly created function
   );
 }
 

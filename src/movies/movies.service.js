@@ -1,4 +1,5 @@
 //the service file is where the logic goes to make the controllers work for the user
+//service file talks to the database, the controller talks to the frontend
 
 const knex = require("../db/connection");
 const mapProperties = require("../utils/map-properties");
@@ -61,7 +62,7 @@ function listReviewsAndCritics(movieId) {
       .where({ "r.movie_id": movieId })
       //.first()
       .then((data) => data.map(addCritic))
-  ); /////////////
+  );
 }
 
 module.exports = {

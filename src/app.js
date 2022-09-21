@@ -13,7 +13,7 @@ const theatersRouter = require("./theaters/theaters.router");
 app.use(express.json());
 
 app.use("/movies", moviesRouter);
-// app.use("/reviews", reviewsRouter);
+app.use("/reviews", reviewsRouter);
 app.use("/theaters", theatersRouter);
 
 // app.get("/movies", (req, res, next) => {

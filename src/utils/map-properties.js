@@ -1,4 +1,5 @@
 const lodash = require("lodash");
+//refer to module 35.9 Joins with knex
 
 /**
  * Creates af function to map the properties of an object to different properties on a new object.

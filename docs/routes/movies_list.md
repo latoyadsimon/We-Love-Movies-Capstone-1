@@ -35,6 +35,8 @@ The response from the server should look like the following:
 
 ### GET /movies?is_showing=true
 
+<!-- this is a query parameter, look at module 30.5 -->
+
 Update your route so that it responds to the following request:
 
 ```

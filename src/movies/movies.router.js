@@ -7,12 +7,9 @@ const methodNotAllowed = require("../errors/methodNotAllowed");
 
 router.route("/").get(controller.list).all(methodNotAllowed);
 
-router
-  .route("?is_showing=true")
-  .get(controller.listIsShowing)
-  .all(methodNotAllowed);
-
 router.route("/:movieId").get(controller.read).all(methodNotAllowed);
+
+// router.use("/:movieId/theaters", controller.movieExists, theatersRouter); //this directs the member to the theatersRouter and sends the movieExists function with them
 
 router
   .route("/:movieId/theaters")
@@ -21,4 +18,7 @@ router
 
 router
   .route("/:movieId/reviews")
-  .get(controller.listReviewsAndCritics).module.exports = router;
+  .get(controller.listReviewsAndCritics)
+  .all(methodNotAllowed);
+
+module.exports = router;

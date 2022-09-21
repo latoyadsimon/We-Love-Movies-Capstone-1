@@ -14,7 +14,7 @@ app.use(express.json());
 
 app.use("/movies", moviesRouter);
 // app.use("/reviews", reviewsRouter);
-// app.use("/theaters", theatersRouter);
+app.use("/theaters", theatersRouter);
 
 // app.get("/movies", (req, res, next) => {
 //     const is_showing = req.query.is_showing;

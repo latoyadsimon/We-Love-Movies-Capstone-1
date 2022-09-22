@@ -34,6 +34,7 @@ function listIsShowing() {
     .select("m.*")
     .where({ "mt.is_showing": true })
     .groupBy("m.movie_id");
+  //.distinct("m.movie_id");//this or groupBy will make sure only one movie shows.
 }
 
 function listAllTheaters(movieId) {
